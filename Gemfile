@@ -10,6 +10,8 @@ gem 'turbolinks', '5.0.1'
 gem 'jbuilder', '2.7.0'
 gem 'bootstrap-sass', '3.3.7'
 gem 'bootstrap-will_paginate', '1.0.0'
+gem 'validates_email_format_of', '1.6.3'
+gem 'bcrypt', '3.1.11'
 
 
 group :development, :test do
