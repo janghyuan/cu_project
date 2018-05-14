@@ -3,4 +3,6 @@ class ApplicationController < ActionController::Base
   def hello
       render html: 'Ruby on Rails'
   end
+  
+  include ApplicationHelper
 end
