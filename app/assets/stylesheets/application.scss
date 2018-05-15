@@ -14,3 +14,22 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+// html.users_new {
+//   background: url('http://wx2.sinaimg.cn/mw690/0060lm7Tly1frc5t4g9qmj30im0cen1b.jpg') no-repeat center center fixed;
+//   -webkit-background-size: cover;
+//   -moz-background-size: cover;
+//   -o-background-size: cover;
+//   background-size: cover;
+//   body {
+//     background: none;
+//   }
+// }
+
+body {
+  background-color: #fff; 
+  background-image: 
+  linear-gradient(90deg, transparent 79px, transparent 81px),
+  linear-gradient(#eee .1em, transparent .1em);
+  background-size: 100% 1.2em;
+}

@@ -1,0 +1,16 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Reports</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= link_to 'View', user_reports_url(user) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

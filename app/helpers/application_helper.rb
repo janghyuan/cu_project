@@ -51,4 +51,36 @@ module ApplicationHelper
     cookies.delete(:user_id)
     cookies.delete(:remember_token)
   end
+  def current_user?(user)
+    user == current_user
+  end
+  
+  def logged_in_user
+    unless logged_in?
+      flash[:danger] = "Please Log In!"
+      redirect_to login_url
+    end
+  end
+  def correct_user
+    @user = User.find_by(id: params[:id])
+    unless current_user.admin?
+      unless current_user?(@user)
+        flash[:warning] = "You have no rights to view others' file"
+        redirect_to root_url
+      end
+    end
+  end
+  def admin_user
+    current_user.admin?
+  end
+  def admin_user_redi
+    unless admin_user
+      flash[:warning] = "You have no rights to view memebers' file!"
+      redirect_to root_url
+    end
+  end
+  def markdown text
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, fenced_code_blocks: true)
+    markdown.render(text)
+  end
 end

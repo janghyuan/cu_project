@@ -1,0 +1,18 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <td width="60%">周報內容</td>
+      <td>時間</td>
+      <td>Week</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reports.each do |report| %>
+      <tr>
+        <td><%= markdown(report.content).html_safe %></td>
+        <td><%= report.created_at %></td>
+        <td>第 <%= report.created_at.strftime("%U").to_i + 1 %> 周</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

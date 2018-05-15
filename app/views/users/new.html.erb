@@ -1,32 +1,57 @@
 <% provide :title, 'Sign Up' %>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h4 class="panel-title">Sign Up</h4> 
+<div class="row">
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Weekly Report 周报提交系统
+      </div>
+      <div class="panel-body">
+          <strong>用户注册时，请使用真实姓名的拼音，例如：张三 zhangsan</strong><br><br>
+          <strong>请使用 markdown 语法提交周报，markdown 语法如下所示：</strong><br><br>
+<pre>
+  - 创建列表項，每一项的开头用 - 标识
+  - 列表项 2
+  - 列表项 3
+  #### 4 级标题
+  ###  3 级标题
+  ##   2 级标题
+  #    1 级标题
+</pre>
+        </ul>
+      </div>
+    </div>
   </div>
-  <div class="panel-body">
-    <%= form_for @user, url: signup_url do |f| %>
-      <%= render 'layouts/error_messages' %>
-      <div class="form-group">
-        <!--<%= f.label :name %>-->
-        <%= f.text_field :name, placeholder: 'Name' %>
-      </div>
-      
-      <div class="form-group">
-        <!--<%= f.label :email %>-->
-        <%= f.email_field :email, placeholder: 'Email' %>
-      </div> 
-      
-      <div class="form-group">
-        <!--<%= f.label :password %>-->
-        <%= f.password_field :password, placeholder: 'Password' %>
-      </div>
-      
-      <div class="form-group">
-        <!--<%= f.label :password_confirmation %>-->
-        <%= f.password_field :password_confirmation, placeholder: 'Password Confirmation' %>
-      </div>
-      
-      <%= f.submit "Create New User", class: 'btn btn-primary btn-xs' %>
-    <% end %>
+  <div class="col-md-3">
+  <div class="panel panel-default">
+    <!--<div class="panel-heading">-->
+    <!--  <h4 class="panel-title">注册新用户</h4> -->
+    <!--</div>-->
+    <div class="panel-body">
+      <%= form_for @user, url: signup_url do |f| %>
+        <%= render 'layouts/error_messages' %>
+        <div class="form-group">
+          <%= f.label :name, '请使用姓名的全拼（小写）' %>
+          <%= f.text_field :name, placeholder: 'Name', class: 'form-control input-sm'  %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :email, '电子邮件地址' %>
+          <%= f.email_field :email, placeholder: 'Email', class: 'form-control input-sm'  %>
+        </div> 
+        
+        <div class="form-group">
+          <%= f.label :password, '用户密码' %>
+          <%= f.password_field :password, placeholder: 'Password', class: 'form-control input-sm' %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :password_confirmation, '用户密码确认' %>
+          <%= f.password_field :password_confirmation, placeholder: 'Password Confirmation', class: 'form-control input-sm' %>
+        </div>
+        
+        <%= f.submit "创建账户", class: 'btn btn-success btn-sm form-control' %>
+      <% end %>
+    </div>
   </div>
+  </div> 
 </div>

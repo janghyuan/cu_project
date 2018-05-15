@@ -14,7 +14,10 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
   
-  resources :users
+  resources :users do
+    resources :reports 
+  end
+  get 'reports', to: 'reports#collect'
   
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'

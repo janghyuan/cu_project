@@ -1,0 +1,13 @@
+<% provide :title, 'New Report' %>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Create Weekly Report
+  </div> 
+  <div class="panel-body">
+    <%= form_for [@user, @report] do |f| %>
+      <%= f.text_area :content, class: 'form-control', rows: 10 , class: 'form-control' %>
+      <%= f.submit 'Create Report', class: 'form-control'  %>
+    <% end %>
+  </div>
+</div>
