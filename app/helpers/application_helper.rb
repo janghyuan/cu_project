@@ -62,12 +62,17 @@ module ApplicationHelper
     end
   end
   def correct_user
+    @user = User.find_by(id: params[:user_id])
+    unless current_user?(@user) || admin_user
+      flash[:warning] = "你没有权利创建、查看或是修改他人的周报！"
+      redirect_to root_url
+    end
+  end
+  def correct_user_for_users_controller
     @user = User.find_by(id: params[:id])
-    unless current_user.admin?
-      unless current_user?(@user)
-        flash[:warning] = "You have no rights to view others' file"
-        redirect_to root_url
-      end
+    unless current_user?(@user)
+      flash[:warning] = "你没有权利创建、查看或是修改他人的周报！"
+      redirect_to root_url
     end
   end
   def admin_user
@@ -75,7 +80,7 @@ module ApplicationHelper
   end
   def admin_user_redi
     unless admin_user
-      flash[:warning] = "You have no rights to view memebers' file!"
+      flash[:warning] = "你没有管理员权限！"
       redirect_to root_url
     end
   end

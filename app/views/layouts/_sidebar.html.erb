@@ -1,0 +1,23 @@
+<div class="panel panel-default">
+  <div class="panel-heading">个人信息</div>
+  <div class="panel-body">
+     <div class="media">
+       <div class="media-left">
+         <%= gravatar_for current_user, class: 'media-object', size: 50 %>
+       </div>
+       <div class="media-body">
+         <h4 class="media-heading">
+           <%= current_user.nickname %>
+           <small><%= link_to '@' + current_user.name, current_user %></small>
+         </h4>
+         截至目前共创建 <%= current_user.reports.count %> 篇周报
+       </div>
+     </div> 
+  </div>
+  <div class="panel-footer">
+    <%= link_to "创建周报", new_user_report_url(current_user), class: 'btn btn-success btn-sm'  %>
+    <% if admin_user %>
+       <%= link_to "成员列表", users_url, class: 'btn btn-primary btn-sm' %> 
+    <% end %>
+  </div>
+</div>

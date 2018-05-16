@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-8">
+     <div class="panel panel-default">
+       <div class="panel-heading">
+         <%= @user.nickname %> &#9679; <%= @report.created_at.strftime("%Y") %> 年
+         第 <%= @report.created_at.strftime("%U").to_i + 1 %> 周周报 &#9679;
+         <%= @report.created_at %>
+       </div>
+       <div class="panel-body">
+         <%= markdown(@report.content).html_safe %>
+       </div>
+     </div> 
+  </div>
+  <div class="col-md-4">
+      
+  </div>
+</div>

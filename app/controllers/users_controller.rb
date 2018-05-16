@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:show]
-  before_action :correct_user, only: [:show]
+  before_action :correct_user_for_users_controller, only: [:show]
   before_action :admin_user_redi, only: [:index]
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page], per_page: 10)
   end
   def new
     @user = User.new

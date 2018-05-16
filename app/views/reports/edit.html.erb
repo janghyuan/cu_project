@@ -1,17 +1,17 @@
-<% provide :title, 'New Report' %>
+<% provide :title, 'Edit Report' %>
 
 <div class="rows">
   <div class="col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading">
-        创建本周周报 &#9679; 第 <%= Time.now.strftime("%U").to_i + 1 %> 周
+        编辑本周周报 &#9679; 第 <%= @report.created_at.strftime("%U").to_i + 1 %> 周
       </div> 
       <div class="panel-body">
         <%= form_for [@user, @report] do |f| %>
           <div class="form-group">
             <%= f.text_area :content, class: 'form-control', rows: 12 , class: 'form-control' %>
           </div>
-          <%= f.submit '创建周报', class: 'form-control btn btn-success'  %>
+          <%= f.submit '提交改动', class: 'form-control btn btn-success'  %>
         <% end %>
       </div>
     </div>

@@ -1,27 +1,8 @@
 <% provide :title, 'Sign Up' %>
 <div class="row">
-  <div class="col-md-9">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        Weekly Report 周报提交系统
-      </div>
-      <div class="panel-body">
-          <strong>用户注册时，请使用真实姓名的拼音，例如：张三 zhangsan</strong><br><br>
-          <strong>请使用 markdown 语法提交周报，markdown 语法如下所示：</strong><br><br>
-<pre>
-  - 创建列表項，每一项的开头用 - 标识
-  - 列表项 2
-  - 列表项 3
-  #### 4 级标题
-  ###  3 级标题
-  ##   2 级标题
-  #    1 级标题
-</pre>
-        </ul>
-      </div>
-    </div>
+  <div class="col-md-4">
   </div>
-  <div class="col-md-3">
+  <div class="col-md-4">
   <div class="panel panel-default">
     <!--<div class="panel-heading">-->
     <!--  <h4 class="panel-title">注册新用户</h4> -->
@@ -32,6 +13,10 @@
         <div class="form-group">
           <%= f.label :name, '请使用姓名的全拼（小写）' %>
           <%= f.text_field :name, placeholder: 'Name', class: 'form-control input-sm'  %>
+        </div>
+        <div class="form-group">
+          <%= f.label :nickname, '请填写真实姓名（汉字）' %>
+          <%= f.text_field :nickname, placeholder: 'RealName', class: 'form-control input-sm'  %>
         </div>
         
         <div class="form-group">
@@ -54,4 +39,5 @@
     </div>
   </div>
   </div> 
+  <div class="col-md-4"></div>
 </div>

@@ -1,38 +1,38 @@
 <nav class='navbar navbar-default navbar-static-top'>
   <div class="container">
-    <%= link_to 'China Union', root_path,  class: 'navbar-brand' %>
+    <%= link_to 'China Union 交付中心', root_path,  class: 'navbar-brand' %>
     
     <ul class="nav navbar-nav navbar-right">
-      <li>
-        <%= link_to 'About', about_path %>
-      </li>
-      <li>
-        <%= link_to 'Help', help_path %>
-      </li>
+      <!--<li>-->
+      <!--  <%= link_to 'About', about_path %>-->
+      <!--</li>-->
+      <!--<li>-->
+      <!--  <%= link_to 'Help', help_path %>-->
+      <!--</li>-->
       <% if logged_in? && admin_user %>
         <li>
-          <%= link_to 'Users', users_url %> 
+          <%= link_to '成员列表', users_url %> 
         </li>
         <li>
-          <%= link_to "周報匯總", reports_url %> 
+          <%= link_to "周报汇总", reports_url %> 
         </li>
       <% end %>
       <% if logged_in? %>
       <li>
-        <%= link_to "#{current_user.name}", current_user %>
+        <%= link_to "我的周报", user_reports_url(current_user) %>
       </li>
       <li>
-        <%= link_to "Create", new_user_report_url(current_user) %>
+        <%= link_to "周报创建", new_user_report_url(current_user) %>
       </li>
       <li>
-        <%= link_to "Log out", logout_path, method: :delete %>
+        <%= link_to "登出系统", logout_path, method: :delete %>
       </li>
       <% else %>
       <li>
-        <%= link_to 'Sign in', login_path %>
+        <%= link_to '登录系统', login_path %>
       </li>
       <li>
-        <%= link_to 'Sign up', signup_path %>
+        <%= link_to '注册', signup_path %>
       </li>
       <% end %>
     </ul>
